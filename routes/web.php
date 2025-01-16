@@ -26,4 +26,4 @@ Route::get('stock', function () {
     return view('stock');
 });
 
-Route::get('report', [ReportController::class,'show']);
+Route::get('report', [ReportController::class,'show'])->middleware('under-construction');
