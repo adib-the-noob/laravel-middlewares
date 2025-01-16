@@ -23,14 +23,16 @@ Route::get('/', function () {
 
 Route::get('report', [ReportController::class,'show']);
 
-Route::middleware(['under-construction'])->group(function () {
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    });
+// Route::middleware(['under-construction'])->group(function () {
+// });
 
-    Route::get('/profile', [ProfileController::class,'show']);
 
-    Route::get('stock', function () {
-        return view('stock');
-    });
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->middleware('role:guest');
+
+Route::get('/profile', [ProfileController::class,'show']);
+
+Route::get('stock', function () {
+    return view('stock');
 });
